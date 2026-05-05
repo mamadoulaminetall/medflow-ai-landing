@@ -6,7 +6,7 @@
   <title>MedFlow AI — L'IA pour les Médecins &amp; Chercheurs</title>
 
   <!-- SEO -->
-  <meta name="description" content="Suite de 13 outils IA biomédicaux : interprétation de bilans biologiques, prédiction de variants génétiques, analyse scRNA-seq, posologie adaptée, résistance antibiotique, chirurgie cardiaque. Par Dr. Mamadou Lamine TALL, PhD Bioinformatique.">
+  <meta name="description" content="Suite de 15 outils IA biomédicaux : interprétation de bilans biologiques, prédiction de variants génétiques, analyse scRNA-seq, microbiome, CNV diagnostique, posologie adaptée, résistance antibiotique, chirurgie cardiaque. Par Dr. Mamadou Lamine TALL, PhD Bioinformatique.">
   <meta name="keywords" content="IA médicale, bioinformatique, scRNA-seq, variants génétiques, bilan biologique IA, antibiogramme IA, MedFlow AI, BioReport AI, GenGI, MYOomics, AMR-AI, CardioSurg AI, médecine IA, intelligence artificielle médecine">
   <meta name="author" content="Dr. Mamadou Lamine TALL, PhD">
   <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="MedFlow AI — L'IA pour les Médecins &amp; Chercheurs">
-  <meta property="og:description" content="Suite de 13 outils IA biomédicaux : interprétation de bilans, génomique, scRNA-seq, posologie, résistance antibiotique, chirurgie cardiaque.">
+  <meta property="og:description" content="Suite de 15 outils IA biomédicaux : interprétation de bilans, génomique, scRNA-seq, microbiome, CNV, posologie, résistance antibiotique, chirurgie cardiaque.">
   <meta property="og:url" content="https://medflow-ai.fr">
   <meta property="og:site_name" content="MedFlow AI">
   <meta property="og:locale" content="fr_FR">
@@ -50,7 +50,9 @@
         {"@type":"SoftwareApplication","name":"MYOomics","applicationCategory":"MedicalApplication","url":"https://myoomics.streamlit.app","offers":{"@type":"Offer","price":"149","priceCurrency":"EUR","billingIncrement":"P1M"}},
         {"@type":"SoftwareApplication","name":"AMR-AI","applicationCategory":"MedicalApplication","url":"https://amr-ai.streamlit.app","offers":{"@type":"Offer","price":"69","priceCurrency":"EUR","billingIncrement":"P1M"}},
         {"@type":"SoftwareApplication","name":"CardioSurg AI","applicationCategory":"MedicalApplication","url":"https://cardiosurg-ai.streamlit.app","offers":{"@type":"Offer","price":"79","priceCurrency":"EUR","billingIncrement":"P1M"}},
-        {"@type":"SoftwareApplication","name":"MedFlow Posologie","applicationCategory":"MedicalApplication","url":"https://medflow-posologie.streamlit.app","offers":{"@type":"Offer","price":"39","priceCurrency":"EUR","billingIncrement":"P1M"}}
+        {"@type":"SoftwareApplication","name":"MedFlow Posologie","applicationCategory":"MedicalApplication","url":"https://medflow-posologie.streamlit.app","offers":{"@type":"Offer","price":"39","priceCurrency":"EUR","billingIncrement":"P1M"}},
+        {"@type":"SoftwareApplication","name":"Microbiome & Cancer","applicationCategory":"MedicalApplication","url":"https://github.com/mamadoulaminetall/microbiome_diagnostic_cancer_precoce","offers":{"@type":"Offer","price":"89","priceCurrency":"EUR","billingIncrement":"P1M"}},
+        {"@type":"SoftwareApplication","name":"CNV Diagnostic","applicationCategory":"MedicalApplication","url":"https://github.com/mamadoulaminetall/D-tection-de-CNV-et-Visualisation-Interactive-","offers":{"@type":"Offer","price":"79","priceCurrency":"EUR","billingIncrement":"P1M"}}
       ]
     }
   }
@@ -198,6 +200,7 @@
     .badge-free { background: rgba(16,185,129,0.12); color: #10b981; border: 1px solid rgba(16,185,129,0.25); }
     .badge-paid { background: rgba(59,130,246,0.12); color: #60a5fa; border: 1px solid rgba(59,130,246,0.25); }
     .badge-new  { background: rgba(234,179,8,0.12);  color: #facc15; border: 1px solid rgba(234,179,8,0.25); }
+    .badge-oss  { background: rgba(168,85,247,0.12); color: #c084fc; border: 1px solid rgba(168,85,247,0.25); }
     .tool-open {
       color: #94a3b8; text-decoration: none;
       font-size: 0.75rem; font-weight: 600;
@@ -272,7 +275,7 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">🩺 13 outils déployés · IA biomédicale</div>
+  <div class="hero-badge">🩺 15 outils déployés · IA biomédicale</div>
   <h1>L'IA au service des<br><span class="grad">Médecins &amp; Chercheurs</span></h1>
   <p>Suite d'outils d'intelligence artificielle pour l'analyse clinique, génomique et multi-omique — développés par un PhD en bioinformatique.</p>
   <div class="hero-btns">
@@ -284,7 +287,7 @@
 <!-- STATS -->
 <div class="stats">
   <div class="stat-card">
-    <div class="stat-val" style="color:#10b981">13</div>
+    <div class="stat-val" style="color:#10b981">15</div>
     <div class="stat-lbl">Outils déployés</div>
   </div>
   <div class="stat-card">
@@ -385,6 +388,32 @@
       </div>
     </div>
 
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🦠</span>
+        <span class="tool-name">Microbiome &amp; Cancer</span>
+      </div>
+      <div class="tool-desc">Détection précoce du cancer via profil microbiomique — méta-analyse 18 études, 2 587 patients, 5 cancers (côlon, poumon, sein, prostate, pancréas).</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">89€/mois</span>
+        <a class="tool-open" href="https://github.com/mamadoulaminetall/microbiome_diagnostic_cancer_precoce" target="_blank">GitHub ↗</a>
+        <a class="tool-subscribe" href="https://buy.stripe.com/dRm6oH5JmdFj7kObrgb3q0a" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🔍</span>
+        <span class="tool-name">CNV Diagnostic</span>
+      </div>
+      <div class="tool-desc">Détection de CNV et visualisation interactive — CMA chromosomique, 25 études, 79 417 patients, 6 indications cliniques.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">79€/mois</span>
+        <a class="tool-open" href="https://github.com/mamadoulaminetall/D-tection-de-CNV-et-Visualisation-Interactive-" target="_blank">GitHub ↗</a>
+        <a class="tool-subscribe" href="https://buy.stripe.com/dRm3cv2xadFj9sW3YOb3q09" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -457,6 +486,7 @@
       </div>
     </div>
 
+
   </div>
 </section>
 
@@ -469,7 +499,7 @@
       <p>
         Chercheur en bioinformatique et data science appliquée à la recherche biomédicale.
         Spécialisé en analyse multi-omique, génomique, IA clinique et médecine de transplantation.
-        Auteur de 29 publications scientifiques · 248+ citations · 13 outils IA déployés en production.
+        Auteur de 29 publications scientifiques · 248+ citations · 15 outils IA déployés en production.
       </p>
       <div class="author-links">
         <a href="https://github.com/mamadoulaminetall" target="_blank">GitHub ↗</a>
