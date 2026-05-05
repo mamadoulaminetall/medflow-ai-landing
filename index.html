@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedFlow AI — L'IA pour les Médecins &amp; Chercheurs</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Suite de 13 outils IA biomédicaux : interprétation de bilans biologiques, prédiction de variants génétiques, analyse scRNA-seq, posologie adaptée, résistance antibiotique, chirurgie cardiaque. Par Dr. Mamadou Lamine TALL, PhD Bioinformatique.">
+  <meta name="keywords" content="IA médicale, bioinformatique, scRNA-seq, variants génétiques, bilan biologique IA, antibiogramme IA, MedFlow AI, BioReport AI, GenGI, MYOomics, AMR-AI, CardioSurg AI, médecine IA, intelligence artificielle médecine">
+  <meta name="author" content="Dr. Mamadou Lamine TALL, PhD">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MedFlow AI — L'IA pour les Médecins &amp; Chercheurs">
+  <meta property="og:description" content="Suite de 13 outils IA biomédicaux : interprétation de bilans, génomique, scRNA-seq, posologie, résistance antibiotique, chirurgie cardiaque.">
+  <meta property="og:url" content="https://medflow-ai.fr">
+  <meta property="og:site_name" content="MedFlow AI">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MedFlow AI — L'IA pour les Médecins &amp; Chercheurs">
+  <meta name="twitter:description" content="Suite de 13 outils IA biomédicaux développés par Dr. Mamadou Lamine TALL, PhD Bioinformatique, Aix-Marseille Université.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://medflow-ai.fr">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MedFlow AI",
+    "url": "https://medflow-ai.fr",
+    "description": "Suite d'outils IA pour médecins et chercheurs en biomédecine",
+    "founder": {
+      "@type": "Person",
+      "name": "Mamadou Lamine TALL",
+      "jobTitle": "PhD Bioinformatique",
+      "url": "https://github.com/mamadoulaminetall"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Outils MedFlow AI",
+      "itemListElement": [
+        {"@type":"SoftwareApplication","name":"BioReport AI","applicationCategory":"MedicalApplication","url":"https://bioreport-ai.streamlit.app","offers":{"@type":"Offer","price":"49","priceCurrency":"EUR","billingIncrement":"P1M"}},
+        {"@type":"SoftwareApplication","name":"GenGI","applicationCategory":"MedicalApplication","url":"https://gengi-ai.streamlit.app","offers":{"@type":"Offer","price":"99","priceCurrency":"EUR","billingIncrement":"P1M"}},
+        {"@type":"SoftwareApplication","name":"MYOomics","applicationCategory":"MedicalApplication","url":"https://myoomics.streamlit.app","offers":{"@type":"Offer","price":"149","priceCurrency":"EUR","billingIncrement":"P1M"}},
+        {"@type":"SoftwareApplication","name":"AMR-AI","applicationCategory":"MedicalApplication","url":"https://amr-ai.streamlit.app","offers":{"@type":"Offer","price":"69","priceCurrency":"EUR","billingIncrement":"P1M"}},
+        {"@type":"SoftwareApplication","name":"CardioSurg AI","applicationCategory":"MedicalApplication","url":"https://cardiosurg-ai.streamlit.app","offers":{"@type":"Offer","price":"79","priceCurrency":"EUR","billingIncrement":"P1M"}},
+        {"@type":"SoftwareApplication","name":"MedFlow Posologie","applicationCategory":"MedicalApplication","url":"https://medflow-posologie.streamlit.app","offers":{"@type":"Offer","price":"39","priceCurrency":"EUR","billingIncrement":"P1M"}}
+      ]
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #09090b;
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(9,9,11,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo span { font-size: 1.1rem; font-weight: 800; color: #f1f5f9; letter-spacing: -0.3px; }
+    .nav-logo span em { color: #10b981; font-style: normal; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #f1f5f9; }
+    .nav-cta {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white; text-decoration: none;
+      padding: 8px 18px; border-radius: 8px;
+      font-size: 0.82rem; font-weight: 700;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 5% 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.25);
+      color: #10b981;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(135deg, #10b981, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.1rem; color: #94a3b8;
+      max-width: 620px; margin: 0 auto 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white; text-decoration: none;
+      padding: 13px 28px; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 700;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .btn-primary:hover { transform: translateY(-1px); opacity: 0.92; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #e2e8f0; text-decoration: none;
+      padding: 13px 28px; border-radius: 10px;
+      font-size: 0.95rem; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.09); }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 5%;
+    }
+    .stat-card {
+      background: #111113;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .stat-val { font-size: 2rem; font-weight: 900; }
+    .stat-lbl { font-size: 0.7rem; color: #64748b; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* SECTIONS */
+    section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.6rem; font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .section-sub { color: #64748b; font-size: 0.9rem; margin-bottom: 36px; }
+
+    /* TOOLS GRID */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .tool-card {
+      background: #111113;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      padding: 20px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .tool-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+    .tool-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .tool-icon { font-size: 1.4rem; }
+    .tool-name { font-size: 0.95rem; font-weight: 700; color: #f1f5f9; }
+    .tool-desc { font-size: 0.8rem; color: #64748b; margin-bottom: 14px; line-height: 1.5; }
+    .tool-footer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      font-size: 0.7rem; font-weight: 700;
+      padding: 3px 9px; border-radius: 20px;
+    }
+    .badge-free { background: rgba(16,185,129,0.12); color: #10b981; border: 1px solid rgba(16,185,129,0.25); }
+    .badge-paid { background: rgba(59,130,246,0.12); color: #60a5fa; border: 1px solid rgba(59,130,246,0.25); }
+    .badge-new  { background: rgba(234,179,8,0.12);  color: #facc15; border: 1px solid rgba(234,179,8,0.25); }
+    .tool-open {
+      color: #94a3b8; text-decoration: none;
+      font-size: 0.75rem; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .tool-open:hover { color: #f1f5f9; }
+    .tool-subscribe {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white; text-decoration: none;
+      font-size: 0.7rem; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+      transition: opacity 0.2s;
+    }
+    .tool-subscribe:hover { opacity: 0.88; }
+
+    /* AUTHOR */
+    .author-section {
+      background: #111113;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px;
+      padding: 40px;
+      display: flex; gap: 36px; align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .author-info h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    .author-info .role { color: #10b981; font-size: 0.85rem; font-weight: 600; margin-bottom: 14px; }
+    .author-info p { color: #94a3b8; font-size: 0.88rem; line-height: 1.7; max-width: 560px; }
+    .author-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .author-links a {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8; text-decoration: none;
+      padding: 7px 14px; border-radius: 8px;
+      font-size: 0.78rem; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .author-links a:hover { background: rgba(255,255,255,0.09); color: #f1f5f9; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 5%;
+      text-align: center;
+      color: #475569;
+      font-size: 0.78rem;
+    }
+    footer a { color: #3b82f6; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .author-section { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://medflow-ai.fr">
+    <span>🩺 MedFlow <em>AI</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="#outils">Outils</a>
+    <a href="#auteur">À propos</a>
+    <a href="https://medflowailanding.streamlit.app" target="_blank">Dashboard</a>
+  </div>
+  <a class="nav-cta" href="#outils">Découvrir →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🩺 13 outils déployés · IA biomédicale</div>
+  <h1>L'IA au service des<br><span class="grad">Médecins &amp; Chercheurs</span></h1>
+  <p>Suite d'outils d'intelligence artificielle pour l'analyse clinique, génomique et multi-omique — développés par un PhD en bioinformatique.</p>
+  <div class="hero-btns">
+    <a class="btn-primary" href="#outils">Voir les outils</a>
+    <a class="btn-secondary" href="https://medflowailanding.streamlit.app" target="_blank">Accéder au dashboard</a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-val" style="color:#10b981">13</div>
+    <div class="stat-lbl">Outils déployés</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-val" style="color:#3b82f6">5 800+</div>
+    <div class="stat-lbl">Échantillons analysés</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-val" style="color:#a78bfa">248+</div>
+    <div class="stat-lbl">Citations</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-val" style="color:#f59e0b">29</div>
+    <div class="stat-lbl">Publications</div>
+  </div>
+</div>
+
+<!-- OUTILS PAYANTS -->
+<section id="outils">
+  <div class="section-title">Outils Premium</div>
+  <div class="section-sub">Abonnement mensuel · Accès complet · Support inclus</div>
+  <div class="tools-grid">
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🧬</span>
+        <span class="tool-name">MYOomics</span>
+      </div>
+      <div class="tool-desc">Analyse multi-omique pour myopathies héréditaires — RNA-seq, scRNA-seq, ML, rapports PDF automatisés.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">149€/mois</span>
+        <a class="tool-open" href="https://myoomics.streamlit.app" target="_blank">Ouvrir ↗</a>
+        <a class="tool-subscribe" href="https://buy.stripe.com/fZu8wP8VycBf20udzob3q08" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🧬</span>
+        <span class="tool-name">GenGI</span>
+      </div>
+      <div class="tool-desc">Prédiction de pathogénicité de variants WES avec DNA-LLM (Nucleotide Transformer) + XAI génomique.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">99€/mois</span>
+        <a class="tool-open" href="https://gengi-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
+        <a class="tool-subscribe" href="https://buy.stripe.com/00w9AT8Vy0SxcF81QGb3q07" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🤖</span>
+        <span class="tool-name">AMR-AI Agent</span>
+      </div>
+      <div class="tool-desc">1er agent IA clinique AMR — 97 essais, 58 000+ patients — recommandations antibiotiques en temps réel.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">69€/mois</span>
+        <a class="tool-open" href="https://amr-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
+        <a class="tool-subscribe" href="https://buy.stripe.com/dRm6oH7Ru1WBgVoeDsb3q05" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🫀</span>
+        <span class="tool-name">CardioSurg AI</span>
+      </div>
+      <div class="tool-desc">EuroSCORE II + ML — prédiction de complications post-op, timing valvulaire, compte rendu opératoire IA.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">79€/mois</span>
+        <a class="tool-open" href="https://cardiosurg-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
+        <a class="tool-subscribe" href="https://buy.stripe.com/28E9ATdbO9p348C7b0b3q06" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">🔬</span>
+        <span class="tool-name">BioReport AI</span>
+      </div>
+      <div class="tool-desc">PDF/photo/texte → rapport structuré 5 sections — interprétation bilan biologique, transplantation, posologie adaptée.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">49€/mois</span>
+        <a class="tool-open" href="https://bioreport-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
+        <a class="tool-subscribe" href="https://buy.stripe.com/7sY3cv0p2cBf20ucvkb3q03" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header">
+        <span class="tool-icon">💊</span>
+        <span class="tool-name">MedFlow Posologie</span>
+      </div>
+      <div class="tool-desc">Tacrolimus, MMF, Prednisolone — posologie adaptée au patient, résumé IA post-greffe cardiaque.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">39€/mois</span>
+        <a class="tool-open" href="https://medflow-posologie.streamlit.app" target="_blank">Ouvrir ↗</a>
+        <a class="tool-subscribe" href="https://buy.stripe.com/eVq9AT9ZCbxb34ybrgb3q04" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- OUTILS GRATUITS -->
+<section>
+  <div class="section-title">Outils Gratuits &amp; Freemium</div>
+  <div class="section-sub">Accès libre · Recherche &amp; clinique</div>
+  <div class="tools-grid">
+
+    <div class="tool-card">
+      <div class="tool-header"><span class="tool-icon">🫀</span><span class="tool-name">QoL Cardiac</span></div>
+      <div class="tool-desc">4 questionnaires · percentiles · 600 patients — qualité de vie cardiaque post-transplantation.</div>
+      <div class="tool-footer">
+        <span class="badge badge-free">Gratuit</span>
+        <a class="tool-open" href="https://cardiac-qol-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header"><span class="tool-icon">📊</span><span class="tool-name">Scores Cliniques</span></div>
+      <div class="tool-desc">15 scores : CHA₂DS₂-VASc, HEART, qSOFA, Glasgow… calcul automatisé et interprétation.</div>
+      <div class="tool-footer">
+        <span class="badge badge-free">Gratuit</span>
+        <a class="tool-open" href="https://clinia-scores.streamlit.app" target="_blank">Ouvrir ↗</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header"><span class="tool-icon">💓</span><span class="tool-name">Réinnervation IA</span></div>
+      <div class="tool-desc">VFC/HRV prédictif post-transplantation · AUC 0.961 — modèle ML de réinnervation autonome.</div>
+      <div class="tool-footer">
+        <span class="badge badge-free">Gratuit</span>
+        <a class="tool-open" href="https://reinnervationaiapp.streamlit.app" target="_blank">Ouvrir ↗</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header"><span class="tool-icon">📈</span><span class="tool-name">Biostatistiques</span></div>
+      <div class="tool-desc">CSV → t-test, ANOVA, Kaplan-Meier · graphiques publication-ready automatisés.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">9€/mois</span>
+        <a class="tool-open" href="https://clinia-biostat.streamlit.app" target="_blank">Ouvrir ↗</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header"><span class="tool-icon">📝</span><span class="tool-name">Générateur CR IA</span></div>
+      <div class="tool-desc">Données cliniques → compte rendu structuré → export PDF en un clic.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">9€/mois</span>
+        <a class="tool-open" href="https://clinia-cr.streamlit.app" target="_blank">Ouvrir ↗</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header"><span class="tool-icon">📚</span><span class="tool-name">Revue Littérature IA</span></div>
+      <div class="tool-desc">PubMed + Claude → synthèse evidence-based automatisée pour revues systématiques.</div>
+      <div class="tool-footer">
+        <span class="badge badge-paid">9€/mois</span>
+        <a class="tool-open" href="https://clinia-review.streamlit.app" target="_blank">Ouvrir ↗</a>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-header"><span class="tool-icon">🚀</span><span class="tool-name">OutreachAI</span></div>
+      <div class="tool-desc">Sales &amp; Revenue Dashboard · prospection Claude API · suivi campagnes · Stripe live.</div>
+      <div class="tool-footer">
+        <span class="badge badge-new">Nouveau</span>
+        <a class="tool-open" href="https://outreach-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AUTEUR -->
+<section id="auteur" style="padding-bottom: 80px;">
+  <div class="author-section">
+    <div class="author-info">
+      <h2>Dr. Mamadou Lamine TALL</h2>
+      <div class="role">PhD Bioinformatique · Aix-Marseille Université · Fondateur MedFlow AI</div>
+      <p>
+        Chercheur en bioinformatique et data science appliquée à la recherche biomédicale.
+        Spécialisé en analyse multi-omique, génomique, IA clinique et médecine de transplantation.
+        Auteur de 29 publications scientifiques · 248+ citations · 13 outils IA déployés en production.
+      </p>
+      <div class="author-links">
+        <a href="https://github.com/mamadoulaminetall" target="_blank">GitHub ↗</a>
+        <a href="https://scholar.google.com/citations?user=qJaCV7MAAAAJ&hl=fr" target="_blank">Google Scholar ↗</a>
+        <a href="https://www.linkedin.com/in/medflow-ia-350531401/" target="_blank">LinkedIn ↗</a>
+        <a href="https://medflowailanding.streamlit.app/?page=cv" target="_blank">CV complet ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    © 2026 MedFlow AI · Dr. Mamadou Lamine TALL, PhD · Aix-Marseille Université<br>
+    <a href="https://medflowailanding.streamlit.app" target="_blank">medflowailanding.streamlit.app</a> ·
+    <a href="https://github.com/mamadoulaminetall" target="_blank">GitHub</a> ·
+    <a href="mailto:laminetall30@gmail.com">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
