@@ -290,19 +290,15 @@
     .ts-sub:hover { opacity: 0.88; }
     .ts-video {
       position: relative; border-radius: 18px; overflow: hidden;
-      aspect-ratio: 9/16; max-height: 450px; min-height: 300px;
+      align-self: stretch; min-height: 380px;
       border: 1px solid rgba(255,255,255,0.1);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 14px; text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
+      text-decoration: none; cursor: default; transition: box-shadow 0.2s;
     }
-    .ts-video:hover { transform: scale(1.02); box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
-    .ts-video-play {
-      width: 58px; height: 58px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; position: relative; z-index: 1;
-    }
-    .ts-video-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.55); position: relative; z-index: 1; }
-    .ts-video-badge { font-size: 0.7rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; position: relative; z-index: 1; }
+    .ts-video:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.45); }
+    .ts-video-play { display: none; }
+    .ts-video-label { display: none; }
+    .ts-video-badge { display: none; }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
@@ -388,7 +384,7 @@
         <a class="ts-sub" href="https://buy.stripe.com/7sY3cv0p2cBf20ucvkb3q03" target="_blank">💳 S'abonner</a>
       </div>
     </div>
-    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#0a0f1a 0%,#1e3a5f 100%);">
+    <a class="ts-video" href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank" style="background:linear-gradient(160deg,#0a0f1a 0%,#1e3a5f 100%);">
       <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(59,130,246,0.18) 0%,transparent 65%);pointer-events:none;"></div>
       <div class="ts-video-play" style="background:rgba(59,130,246,0.2);border:2px solid rgba(96,165,250,0.6);color:#60a5fa;">▶</div>
       <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
@@ -416,7 +412,7 @@
         <a class="ts-sub" href="https://buy.stripe.com/00w9AT8Vy0SxcF81QGb3q07" target="_blank">💳 S'abonner</a>
       </div>
     </div>
-    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#0d0a1a 0%,#2d1a5f 100%);">
+    <a class="ts-video" href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank" style="background:linear-gradient(160deg,#0d0a1a 0%,#2d1a5f 100%);">
       <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(124,58,237,0.18) 0%,transparent 65%);pointer-events:none;"></div>
       <div class="ts-video-play" style="background:rgba(124,58,237,0.2);border:2px solid rgba(167,139,250,0.6);color:#a78bfa;">▶</div>
       <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
@@ -444,7 +440,7 @@
         <a class="ts-sub" href="https://buy.stripe.com/fZu8wP8VycBf20udzob3q08" target="_blank">💳 S'abonner</a>
       </div>
     </div>
-    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#080d1a 0%,#0f2560 100%);">
+    <a class="ts-video" href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank" style="background:linear-gradient(160deg,#080d1a 0%,#0f2560 100%);">
       <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(29,78,216,0.18) 0%,transparent 65%);pointer-events:none;"></div>
       <div class="ts-video-play" style="background:rgba(29,78,216,0.2);border:2px solid rgba(96,165,250,0.6);color:#60a5fa;">▶</div>
       <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
@@ -472,7 +468,7 @@
         <a class="ts-sub" href="https://buy.stripe.com/dRm6oH7Ru1WBgVoeDsb3q05" target="_blank">💳 S'abonner</a>
       </div>
     </div>
-    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#1a0808 0%,#5f0f0f 100%);">
+    <a class="ts-video" href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank" style="background:linear-gradient(160deg,#1a0808 0%,#5f0f0f 100%);">
       <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(220,38,38,0.18) 0%,transparent 65%);pointer-events:none;"></div>
       <div class="ts-video-play" style="background:rgba(220,38,38,0.2);border:2px solid rgba(248,113,113,0.6);color:#f87171;">▶</div>
       <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
@@ -500,7 +496,7 @@
         <a class="ts-sub" href="https://buy.stripe.com/28E9ATdbO9p348C7b0b3q06" target="_blank">💳 S'abonner</a>
       </div>
     </div>
-    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#1a080d 0%,#5f0f1e 100%);">
+    <a class="ts-video" href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank" style="background:linear-gradient(160deg,#1a080d 0%,#5f0f1e 100%);">
       <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(225,29,72,0.18) 0%,transparent 65%);pointer-events:none;"></div>
       <div class="ts-video-play" style="background:rgba(225,29,72,0.2);border:2px solid rgba(253,164,175,0.6);color:#fda4af;">▶</div>
       <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
@@ -528,7 +524,7 @@
         <a class="ts-sub" href="https://buy.stripe.com/eVq9AT9ZCbxb34ybrgb3q04" target="_blank">💳 S'abonner</a>
       </div>
     </div>
-    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#1a0e06 0%,#5f2e0a 100%);">
+    <a class="ts-video" href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank" style="background:linear-gradient(160deg,#1a0e06 0%,#5f2e0a 100%);">
       <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(234,88,12,0.18) 0%,transparent 65%);pointer-events:none;"></div>
       <div class="ts-video-play" style="background:rgba(234,88,12,0.2);border:2px solid rgba(253,186,116,0.6);color:#fdba74;">▶</div>
       <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
@@ -556,7 +552,7 @@
         <a class="ts-sub" href="https://buy.stripe.com/dRm6oH5JmdFj7kObrgb3q0a" target="_blank">💳 S'abonner</a>
       </div>
     </div>
-    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#060f0e 0%,#0a3530 100%);">
+    <a class="ts-video" href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank" style="background:linear-gradient(160deg,#060f0e 0%,#0a3530 100%);">
       <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(13,148,136,0.18) 0%,transparent 65%);pointer-events:none;"></div>
       <div class="ts-video-play" style="background:rgba(13,148,136,0.2);border:2px solid rgba(94,234,212,0.6);color:#5eead4;">▶</div>
       <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
@@ -584,7 +580,7 @@
         <a class="ts-sub" href="https://buy.stripe.com/dRm3cv2xadFj9sW3YOb3q09" target="_blank">💳 S'abonner</a>
       </div>
     </div>
-    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#0d0a1a 0%,#2e1260 100%);">
+    <a class="ts-video" href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank" style="background:linear-gradient(160deg,#0d0a1a 0%,#2e1260 100%);">
       <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(147,51,234,0.18) 0%,transparent 65%);pointer-events:none;"></div>
       <div class="ts-video-play" style="background:rgba(147,51,234,0.2);border:2px solid rgba(216,180,254,0.6);color:#d8b4fe;">▶</div>
       <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
@@ -713,6 +709,208 @@
     <a href="https://outreach-ai.streamlit.app" target="_blank" style="color:#1e293b; text-decoration:none;">⚙ dashboard</a>
   </p>
 </footer>
+
+<style>
+  .vt-wrap { display:flex; flex-direction:column; width:100%; height:100%; flex:1; padding:16px; }
+  .vt-bar {
+    display:flex; align-items:center; gap:6px; margin-bottom:10px;
+    background:rgba(0,0,0,0.3); border-radius:8px; padding:7px 10px;
+  }
+  .vt-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+  .vt-title { margin-left:6px; font-size:0.7rem; color:rgba(255,255,255,0.45); font-weight:600; }
+  .vt-body { flex:1; background:rgba(0,0,0,0.35); border-radius:8px; padding:10px 12px; font-family:'Courier New',monospace; font-size:0.72rem; overflow:hidden; }
+  .vt-prompt { color:#94a3b8; font-size:0.72rem; white-space:nowrap; overflow:hidden; }
+  .vt-caret { animation: blink 0.9s step-end infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .vt-row { display:flex; justify-content:space-between; align-items:center; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.68rem; gap:6px; opacity:0; transform:translateY(4px); transition:all 0.3s ease; }
+  .vt-row.show { opacity:1; transform:translateY(0); }
+  .vt-row span:first-child { font-size:0.8rem; }
+  .vt-row span:nth-child(2) { color:#94a3b8; flex:1; margin-left:6px; }
+  .vt-row span:last-child { font-weight:700; white-space:nowrap; }
+  .vt-link {
+    display:block; text-align:center; margin-top:10px;
+    font-size:0.72rem; font-weight:700; text-decoration:none;
+    padding:8px; border-radius:8px; background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.1); transition:background 0.2s;
+  }
+  .vt-link:hover { background:rgba(255,255,255,0.13); }
+  .vt-badge-row { display:flex; justify-content:space-between; margin-top:8px; gap:8px; }
+  .vt-mini-stat { flex:1; background:rgba(0,0,0,0.3); border-radius:6px; padding:6px 8px; text-align:center; }
+  .vt-mini-val { font-size:0.75rem; font-weight:800; }
+  .vt-mini-lbl { font-size:0.55rem; color:#64748b; text-transform:uppercase; letter-spacing:0.3px; margin-top:2px; }
+</style>
+
+<script>
+(function() {
+  const T = {
+    bioreport: {
+      name: 'BioReport AI', color: '#60a5fa',
+      cmd: 'upload("bilan_bio.pdf")',
+      proc: 'Analyse IA · Claude API',
+      stats: [['<10s','Analyse'],['PDF','Upload'],['5','Sections']],
+      res: [['🔴','Glucose','7.2 mmol/L ↑'],['🟡','HbA1c','6.8% Pré-diabète'],['🟢','Créatinine','82 µmol/L ✓'],['🟢','TSH','2.1 mUI/L ✓']],
+    },
+    gengi: {
+      name: 'GenGI', color: '#a78bfa',
+      cmd: 'predict("BRCA1_c.5266dupC")',
+      proc: 'DNA-LLM · Transformer',
+      stats: [['DNA-LLM','Modèle'],['SHAP','XAI'],['99.2%','Précision']],
+      res: [['🔴','Pathogénicité','Pathogène (99.2%)'],['🧬','Variant','BRCA1 c.5266dupC'],['📊','ClinVar','3-étoiles ✓'],['🔍','SHAP','Frameshift +1']],
+    },
+    myoomics: {
+      name: 'MYOomics', color: '#60a5fa',
+      cmd: 'load_rnaseq("DMD_counts.csv")',
+      proc: 'DESeq2 · UMAP · ML',
+      stats: [['4213','Échant.'],['67','Études'],['94.3%','ML Acc.']],
+      res: [['🔴','UTRN','log2FC = -4.2 ***'],['🔴','NF-kB','Activé ↑↑↑'],['🟢','FOXO3','log2FC = +2.1 **'],['🤖','ML Acc.','94.3% (RF)']],
+    },
+    amr: {
+      name: 'AMR-AI', color: '#f87171',
+      cmd: 'analyze("E_coli_WGS.fasta")',
+      proc: 'AMR genes · CARD DB',
+      stats: [['97','Essais'],['58K+','Patients'],['<5s','Prédiction']],
+      res: [['🔴','Amoxicilline','Résistant ✗'],['🔴','Cipro.','Résistant ✗'],['🟢','Imipénem','Sensible ✓'],['💊','Reco.','Imipénem 500mg']],
+    },
+    cardiosurg: {
+      name: 'CardioSurg AI', color: '#fda4af',
+      cmd: 'compute_risk("TXP-2847")',
+      proc: 'HRV · EuroSCORE II',
+      stats: [['HRV','VFC'],['LVAD','Support'],['0.96','AUC']],
+      res: [['🫀','EuroSCORE II','3.2% mortalité'],['📈','HRV SDNN','42 ms (bas ↓)'],['⚡','Réinnervation','68% proba.'],['✅','Décision','Chirurgie validée']],
+    },
+    posologie: {
+      name: 'Posologie', color: '#fdba74',
+      cmd: 'calc_dose("Vanco", 68, 72, 1.8)',
+      proc: 'Cockcroft-Gault · DFG',
+      stats: [['DFG','Rénal'],['Poids','Adapté'],['39€','/mois']],
+      res: [['💊','Dose','750 mg / 12h'],['🫘','DFG','38 mL/min (IR mod.)'],['⏱️','Intervalle','Toutes les 12h'],['⚠️','Monitoring','Dosage sérique J3']],
+    },
+    microbiome: {
+      name: 'Microbiome', color: '#5eead4',
+      cmd: 'analyze_16S("sample.fastq")',
+      proc: 'RF model · microbiome',
+      stats: [['0.91','AUC'],['18','Études'],['5','Cancers']],
+      res: [['🔴','Fusobacterium','Enrichi ↑↑'],['🟡','Risque colorectal','73% proba.'],['🟢','B. fragilis','Détecté'],['📊','Score','Haut risque']],
+    },
+    cnv: {
+      name: 'CNV Diagnostic', color: '#d8b4fe',
+      cmd: 'load_cma("patient_array.vcf")',
+      proc: 'CNV detection · ACMG',
+      stats: [['79K','Patients'],['15.4%','Rendement'],['6','Indications']],
+      res: [['🔴','chr7:117M','DEL · Pathogène'],['🟡','chr15:22M','DUP · VUS'],['🟢','Rendement','15.4%'],['📋','ACMG','Classification 2024']],
+    },
+  };
+
+  const KEY_MAP = {
+    'BioReport': 'bioreport', 'GenGI': 'gengi', 'MYOomics': 'myoomics',
+    'AMR': 'amr', 'CardioSurg': 'cardiosurg', 'Posologie': 'posologie',
+    'Microbiome': 'microbiome', 'CNV': 'cnv',
+  };
+
+  function getKey(el) {
+    const badge = el.querySelector('.ts-video-badge');
+    if (!badge) return null;
+    const txt = badge.textContent;
+    for (const [k, v] of Object.entries(KEY_MAP)) {
+      if (txt.includes(k)) return v;
+    }
+    return null;
+  }
+
+  function buildUI(el, toolKey) {
+    const d = T[toolKey];
+    const href = el.getAttribute('href') || 'https://www.tiktok.com/@medflow_ai';
+
+    el.removeAttribute('href');
+    el.style.flexDirection = 'column';
+    el.style.justifyContent = 'stretch';
+    el.style.padding = '0';
+    el.style.gap = '0';
+
+    el.innerHTML = `
+      <div class="vt-wrap">
+        <div class="vt-bar">
+          <span class="vt-dot" style="background:#ef4444"></span>
+          <span class="vt-dot" style="background:#f59e0b"></span>
+          <span class="vt-dot" style="background:#10b981"></span>
+          <span class="vt-title">${d.name}</span>
+        </div>
+        <div class="vt-body" style="flex:1;">
+          <div class="vt-prompt" style="margin-bottom:8px;">
+            <span style="color:${d.color};">$</span>
+            <span class="vt-cmd" style="color:#e2e8f0;margin-left:6px;"></span><span class="vt-caret" style="color:${d.color};">▊</span>
+          </div>
+          <div class="vt-proc" style="display:none;font-size:0.7rem;color:#94a3b8;margin-bottom:8px;"></div>
+          <div class="vt-res"></div>
+        </div>
+        <div class="vt-badge-row">
+          ${d.stats.map(s => `<div class="vt-mini-stat"><div class="vt-mini-val" style="color:${d.color}">${s[0]}</div><div class="vt-mini-lbl">${s[1]}</div></div>`).join('')}
+        </div>
+        <a class="vt-link" href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank" style="color:${d.color};">▶ Voir la démo · YouTube MedFlow AI</a>
+      </div>
+    `;
+
+    runAnim(el, d);
+  }
+
+  function runAnim(el, d) {
+    const cmdEl = el.querySelector('.vt-cmd');
+    const caret = el.querySelector('.vt-caret');
+    const procEl = el.querySelector('.vt-proc');
+    const resEl = el.querySelector('.vt-res');
+    if (!cmdEl) return;
+
+    cmdEl.textContent = '';
+    procEl.style.display = 'none';
+    procEl.style.color = '#94a3b8';
+    procEl.textContent = '';
+    resEl.innerHTML = '';
+    caret.style.display = 'inline';
+
+    let i = 0;
+    const typeSpeed = Math.max(35, Math.min(65, 1800 / d.cmd.length));
+    const timer = setInterval(() => {
+      if (i < d.cmd.length) {
+        cmdEl.textContent += d.cmd[i++];
+      } else {
+        clearInterval(timer);
+        caret.style.display = 'none';
+
+        setTimeout(() => {
+          procEl.style.display = 'block';
+          let dots = 0;
+          const dt = setInterval(() => { procEl.textContent = d.proc + '.'.repeat(dots++ % 4); }, 280);
+
+          setTimeout(() => {
+            clearInterval(dt);
+            procEl.style.color = '#10b981';
+            procEl.textContent = '✓ Analyse terminée';
+
+            d.res.forEach((r, idx) => {
+              setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'vt-row';
+                row.innerHTML = `<span>${r[0]}</span><span>${r[1]}</span><span style="color:${d.color}">${r[2]}</span>`;
+                resEl.appendChild(row);
+                requestAnimationFrame(() => requestAnimationFrame(() => row.classList.add('show')));
+              }, idx * 320);
+            });
+
+            setTimeout(() => runAnim(el, d), d.res.length * 320 + 3000);
+          }, 1100);
+        }, 200);
+      }
+    }, typeSpeed);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.ts-video').forEach(el => {
+      const key = getKey(el);
+      if (key) buildUI(el, key);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
