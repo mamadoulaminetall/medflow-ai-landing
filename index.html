@@ -250,7 +250,66 @@
     footer a { color: #3b82f6; text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
+    /* TOOL SHOWCASE */
+    .tool-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+      padding: 52px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .tool-showcase:last-child { border-bottom: none; }
+    .tool-showcase.reverse { direction: rtl; }
+    .tool-showcase.reverse > * { direction: ltr; }
+    .ts-icon-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .ts-icon { font-size: 2rem; }
+    .ts-name { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.5px; }
+    .ts-subtitle { color: #94a3b8; font-size: 0.85rem; margin-bottom: 14px; font-weight: 500; }
+    .ts-desc { color: #cbd5e1; font-size: 0.875rem; line-height: 1.8; margin-bottom: 20px; }
+    .ts-stats { display: flex; gap: 12px; margin-bottom: 22px; flex-wrap: wrap; }
+    .ts-stat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 10px 16px; text-align: center; min-width: 80px;
+    }
+    .ts-stat-val { font-size: 1rem; font-weight: 800; }
+    .ts-stat-lbl { font-size: 0.6rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; }
+    .ts-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .ts-open {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.13);
+      color: #e2e8f0; text-decoration: none; padding: 10px 20px; border-radius: 8px;
+      font-size: 0.83rem; font-weight: 600; transition: background 0.2s;
+    }
+    .ts-open:hover { background: rgba(255,255,255,0.11); }
+    .ts-sub {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px;
+      font-size: 0.83rem; font-weight: 700; transition: opacity 0.2s;
+    }
+    .ts-sub:hover { opacity: 0.88; }
+    .ts-video {
+      position: relative; border-radius: 18px; overflow: hidden;
+      aspect-ratio: 9/16; max-height: 450px; min-height: 300px;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px; text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ts-video:hover { transform: scale(1.02); box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
+    .ts-video-play {
+      width: 58px; height: 58px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; position: relative; z-index: 1;
+    }
+    .ts-video-label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.55); position: relative; z-index: 1; }
+    .ts-video-badge { font-size: 0.7rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; position: relative; z-index: 1; }
+
     /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .tool-showcase { grid-template-columns: 1fr; gap: 28px; }
+      .tool-showcase.reverse { direction: ltr; }
+      .ts-video { max-height: 340px; }
+    }
     @media (max-width: 640px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
@@ -304,117 +363,235 @@
   </div>
 </div>
 
-<!-- OUTILS PAYANTS -->
-<section id="outils">
+<!-- OUTILS PREMIUM — SHOWCASE -->
+<section id="outils" style="max-width:1100px;">
   <div class="section-title">Outils Premium</div>
-  <div class="section-sub">Abonnement mensuel · Accès complet · Support inclus</div>
-  <div class="tools-grid">
+  <div class="section-sub">Chaque outil en démonstration · Abonnement mensuel · Support inclus</div>
 
-    <div class="tool-card">
-      <div class="tool-header">
-        <span class="tool-icon">🧬</span>
-        <span class="tool-name">MYOomics</span>
+  <!-- BioReport AI -->
+  <div class="tool-showcase">
+    <div class="ts-text">
+      <div class="ts-icon-row">
+        <span class="ts-icon">🔬</span>
+        <span class="ts-name" style="color:#60a5fa">BioReport AI</span>
+        <span class="badge badge-paid" style="margin-left:4px">49€/mois</span>
       </div>
-      <div class="tool-desc">Analyse multi-omique pour myopathies héréditaires — RNA-seq, scRNA-seq, ML, rapports PDF automatisés.</div>
-      <div class="tool-footer">
-        <span class="badge badge-paid">149€/mois</span>
-        <a class="tool-open" href="https://myoomics.streamlit.app" target="_blank">Ouvrir ↗</a>
-        <a class="tool-subscribe" href="https://buy.stripe.com/fZu8wP8VycBf20udzob3q08" target="_blank">💳 S'abonner</a>
+      <div class="ts-subtitle">Interprétation intelligente de bilans biologiques</div>
+      <p class="ts-desc">Uploadez votre bilan biologique en PDF, photo ou texte. L'IA analyse chaque valeur, la compare aux normes cliniques et génère un rapport structuré en 5 sections — interprétation, conclusions, recommandations — en moins de 10 secondes. Propulsé par Claude AI.</p>
+      <div class="ts-stats">
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#60a5fa">&lt; 10s</div><div class="ts-stat-lbl">Analyse</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#60a5fa">PDF</div><div class="ts-stat-lbl">Upload</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#60a5fa">5</div><div class="ts-stat-lbl">Sections</div></div>
+      </div>
+      <div class="ts-btns">
+        <a class="ts-open" href="https://bioreport-ai.streamlit.app" target="_blank">Ouvrir l'outil ↗</a>
+        <a class="ts-sub" href="https://buy.stripe.com/7sY3cv0p2cBf20ucvkb3q03" target="_blank">💳 S'abonner</a>
       </div>
     </div>
-
-    <div class="tool-card">
-      <div class="tool-header">
-        <span class="tool-icon">🧬</span>
-        <span class="tool-name">GenGI</span>
-      </div>
-      <div class="tool-desc">Prédiction de pathogénicité de variants WES avec DNA-LLM (Nucleotide Transformer) + XAI génomique.</div>
-      <div class="tool-footer">
-        <span class="badge badge-paid">99€/mois</span>
-        <a class="tool-open" href="https://gengi-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
-        <a class="tool-subscribe" href="https://buy.stripe.com/00w9AT8Vy0SxcF81QGb3q07" target="_blank">💳 S'abonner</a>
-      </div>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-header">
-        <span class="tool-icon">🤖</span>
-        <span class="tool-name">AMR-AI Agent</span>
-      </div>
-      <div class="tool-desc">1er agent IA clinique AMR — 97 essais, 58 000+ patients — recommandations antibiotiques en temps réel.</div>
-      <div class="tool-footer">
-        <span class="badge badge-paid">69€/mois</span>
-        <a class="tool-open" href="https://amr-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
-        <a class="tool-subscribe" href="https://buy.stripe.com/dRm6oH7Ru1WBgVoeDsb3q05" target="_blank">💳 S'abonner</a>
-      </div>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-header">
-        <span class="tool-icon">🫀</span>
-        <span class="tool-name">CardioSurg AI</span>
-      </div>
-      <div class="tool-desc">EuroSCORE II + ML — prédiction de complications post-op, timing valvulaire, compte rendu opératoire IA.</div>
-      <div class="tool-footer">
-        <span class="badge badge-paid">79€/mois</span>
-        <a class="tool-open" href="https://cardiosurg-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
-        <a class="tool-subscribe" href="https://buy.stripe.com/28E9ATdbO9p348C7b0b3q06" target="_blank">💳 S'abonner</a>
-      </div>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-header">
-        <span class="tool-icon">🔬</span>
-        <span class="tool-name">BioReport AI</span>
-      </div>
-      <div class="tool-desc">PDF/photo/texte → rapport structuré 5 sections — interprétation bilan biologique, transplantation, posologie adaptée.</div>
-      <div class="tool-footer">
-        <span class="badge badge-paid">49€/mois</span>
-        <a class="tool-open" href="https://bioreport-ai.streamlit.app" target="_blank">Ouvrir ↗</a>
-        <a class="tool-subscribe" href="https://buy.stripe.com/7sY3cv0p2cBf20ucvkb3q03" target="_blank">💳 S'abonner</a>
-      </div>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-header">
-        <span class="tool-icon">💊</span>
-        <span class="tool-name">MedFlow Posologie</span>
-      </div>
-      <div class="tool-desc">Tacrolimus, MMF, Prednisolone — posologie adaptée au patient, résumé IA post-greffe cardiaque.</div>
-      <div class="tool-footer">
-        <span class="badge badge-paid">39€/mois</span>
-        <a class="tool-open" href="https://medflow-posologie.streamlit.app" target="_blank">Ouvrir ↗</a>
-        <a class="tool-subscribe" href="https://buy.stripe.com/eVq9AT9ZCbxb34ybrgb3q04" target="_blank">💳 S'abonner</a>
-      </div>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-header">
-        <span class="tool-icon">🦠</span>
-        <span class="tool-name">Microbiome &amp; Cancer</span>
-      </div>
-      <div class="tool-desc">Détection précoce du cancer via profil microbiomique — méta-analyse 18 études, 2 587 patients, 5 cancers (côlon, poumon, sein, prostate, pancréas).</div>
-      <div class="tool-footer">
-        <span class="badge badge-paid">89€/mois</span>
-        <a class="tool-open" href="https://microbiome-cancer-diagnostic.streamlit.app" target="_blank">Ouvrir ↗</a>
-        <a class="tool-subscribe" href="https://buy.stripe.com/dRm6oH5JmdFj7kObrgb3q0a" target="_blank">💳 S'abonner</a>
-      </div>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-header">
-        <span class="tool-icon">🔍</span>
-        <span class="tool-name">CNV Diagnostic</span>
-      </div>
-      <div class="tool-desc">Détection de CNV et visualisation interactive — CMA chromosomique, 25 études, 79 417 patients, 6 indications cliniques.</div>
-      <div class="tool-footer">
-        <span class="badge badge-paid">79€/mois</span>
-        <a class="tool-open" href="https://cnv-diagnostic-platform.streamlit.app" target="_blank">Ouvrir ↗</a>
-        <a class="tool-subscribe" href="https://buy.stripe.com/dRm3cv2xadFj9sW3YOb3q09" target="_blank">💳 S'abonner</a>
-      </div>
-    </div>
-
+    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#0a0f1a 0%,#1e3a5f 100%);">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(59,130,246,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+      <div class="ts-video-play" style="background:rgba(59,130,246,0.2);border:2px solid rgba(96,165,250,0.6);color:#60a5fa;">▶</div>
+      <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
+      <div class="ts-video-badge" style="background:rgba(59,130,246,0.15);color:#93c5fd;border:1px solid rgba(59,130,246,0.3);">🔬 BioReport AI</div>
+    </a>
   </div>
+
+  <!-- GenGI -->
+  <div class="tool-showcase reverse">
+    <div class="ts-text">
+      <div class="ts-icon-row">
+        <span class="ts-icon">🧬</span>
+        <span class="ts-name" style="color:#a78bfa">GenGI</span>
+        <span class="badge badge-paid" style="margin-left:4px">99€/mois</span>
+      </div>
+      <div class="ts-subtitle">Prédiction de pathogénicité de variants génétiques</div>
+      <p class="ts-desc">Modèle DNA-LLM basé sur Nucleotide Transformer — analyse la séquence génomique et prédit la pathogénicité de chaque variant avec une explainabilité totale via SHAP. Intégration ClinVar, classification ACMG 2024 intégrée.</p>
+      <div class="ts-stats">
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#a78bfa">DNA-LLM</div><div class="ts-stat-lbl">Architecture</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#a78bfa">SHAP</div><div class="ts-stat-lbl">XAI</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#a78bfa">99.2%</div><div class="ts-stat-lbl">Précision</div></div>
+      </div>
+      <div class="ts-btns">
+        <a class="ts-open" href="https://gengi-ai.streamlit.app" target="_blank">Ouvrir l'outil ↗</a>
+        <a class="ts-sub" href="https://buy.stripe.com/00w9AT8Vy0SxcF81QGb3q07" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#0d0a1a 0%,#2d1a5f 100%);">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(124,58,237,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+      <div class="ts-video-play" style="background:rgba(124,58,237,0.2);border:2px solid rgba(167,139,250,0.6);color:#a78bfa;">▶</div>
+      <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
+      <div class="ts-video-badge" style="background:rgba(124,58,237,0.15);color:#c4b5fd;border:1px solid rgba(124,58,237,0.3);">🧬 GenGI</div>
+    </a>
+  </div>
+
+  <!-- MYOomics -->
+  <div class="tool-showcase">
+    <div class="ts-text">
+      <div class="ts-icon-row">
+        <span class="ts-icon">🦾</span>
+        <span class="ts-name" style="color:#60a5fa">MYOomics</span>
+        <span class="badge badge-paid" style="margin-left:4px">149€/mois</span>
+      </div>
+      <div class="ts-subtitle">Plateforme multi-omique dédiée aux myopathies héréditaires</div>
+      <p class="ts-desc">Analyse complète RNA-seq, single-cell, UMAP et classification par machine learning. Basée sur 67 études et 4 213 échantillons couvrant 12 maladies neuromusculaires — génère des rapports PDF automatisés et des graphiques publication-ready.</p>
+      <div class="ts-stats">
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#60a5fa">4 213</div><div class="ts-stat-lbl">Échantillons</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#60a5fa">67</div><div class="ts-stat-lbl">Études</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#60a5fa">94.3%</div><div class="ts-stat-lbl">ML Accuracy</div></div>
+      </div>
+      <div class="ts-btns">
+        <a class="ts-open" href="https://myoomics.streamlit.app" target="_blank">Ouvrir l'outil ↗</a>
+        <a class="ts-sub" href="https://buy.stripe.com/fZu8wP8VycBf20udzob3q08" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#080d1a 0%,#0f2560 100%);">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(29,78,216,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+      <div class="ts-video-play" style="background:rgba(29,78,216,0.2);border:2px solid rgba(96,165,250,0.6);color:#60a5fa;">▶</div>
+      <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
+      <div class="ts-video-badge" style="background:rgba(29,78,216,0.15);color:#93c5fd;border:1px solid rgba(29,78,216,0.3);">🦾 MYOomics</div>
+    </a>
+  </div>
+
+  <!-- AMR-AI -->
+  <div class="tool-showcase reverse">
+    <div class="ts-text">
+      <div class="ts-icon-row">
+        <span class="ts-icon">🛡️</span>
+        <span class="ts-name" style="color:#f87171">AMR-AI</span>
+        <span class="badge badge-paid" style="margin-left:4px;background:rgba(220,38,38,0.12);color:#f87171;border-color:rgba(220,38,38,0.25)">69€/mois</span>
+      </div>
+      <div class="ts-subtitle">Prédiction de résistance aux antibiotiques par IA</div>
+      <p class="ts-desc">Premier agent IA clinique AMR basé sur 97 essais randomisés et 58 000+ patients. Analysez le génome bactérien complet (WGS) et obtenez un antibiogramme prédictif avec recommandation thérapeutique en moins de 5 secondes.</p>
+      <div class="ts-stats">
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#f87171">97</div><div class="ts-stat-lbl">Essais</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#f87171">58K+</div><div class="ts-stat-lbl">Patients</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#f87171">&lt; 5s</div><div class="ts-stat-lbl">Prédiction</div></div>
+      </div>
+      <div class="ts-btns">
+        <a class="ts-open" href="https://amr-ai.streamlit.app" target="_blank">Ouvrir l'outil ↗</a>
+        <a class="ts-sub" href="https://buy.stripe.com/dRm6oH7Ru1WBgVoeDsb3q05" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#1a0808 0%,#5f0f0f 100%);">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(220,38,38,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+      <div class="ts-video-play" style="background:rgba(220,38,38,0.2);border:2px solid rgba(248,113,113,0.6);color:#f87171;">▶</div>
+      <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
+      <div class="ts-video-badge" style="background:rgba(220,38,38,0.15);color:#fca5a5;border:1px solid rgba(220,38,38,0.3);">🛡️ AMR-AI</div>
+    </a>
+  </div>
+
+  <!-- CardioSurg AI -->
+  <div class="tool-showcase">
+    <div class="ts-text">
+      <div class="ts-icon-row">
+        <span class="ts-icon">🫀</span>
+        <span class="ts-name" style="color:#fda4af">CardioSurg AI</span>
+        <span class="badge badge-paid" style="margin-left:4px;background:rgba(225,29,72,0.12);color:#fda4af;border-color:rgba(225,29,72,0.25)">79€/mois</span>
+      </div>
+      <div class="ts-subtitle">Score de risque chirurgical cardiaque &amp; transplantation</div>
+      <p class="ts-desc">Calcul EuroSCORE II, analyse de la variabilité de la fréquence cardiaque (HRV/VFC) et prédiction de réinnervation autonome post-transplantation. Génère un compte rendu opératoire IA structuré pour la chirurgie valvulaire et la transplantation.</p>
+      <div class="ts-stats">
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#fda4af">HRV</div><div class="ts-stat-lbl">Analyse VFC</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#fda4af">LVAD</div><div class="ts-stat-lbl">Support</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#fda4af">AUC 0.96</div><div class="ts-stat-lbl">Précision ML</div></div>
+      </div>
+      <div class="ts-btns">
+        <a class="ts-open" href="https://cardiosurg-ai.streamlit.app" target="_blank">Ouvrir l'outil ↗</a>
+        <a class="ts-sub" href="https://buy.stripe.com/28E9ATdbO9p348C7b0b3q06" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#1a080d 0%,#5f0f1e 100%);">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(225,29,72,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+      <div class="ts-video-play" style="background:rgba(225,29,72,0.2);border:2px solid rgba(253,164,175,0.6);color:#fda4af;">▶</div>
+      <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
+      <div class="ts-video-badge" style="background:rgba(225,29,72,0.15);color:#fda4af;border:1px solid rgba(225,29,72,0.3);">🫀 CardioSurg AI</div>
+    </a>
+  </div>
+
+  <!-- MedFlow Posologie -->
+  <div class="tool-showcase reverse">
+    <div class="ts-text">
+      <div class="ts-icon-row">
+        <span class="ts-icon">💊</span>
+        <span class="ts-name" style="color:#fdba74">MedFlow Posologie</span>
+        <span class="badge badge-paid" style="margin-left:4px;background:rgba(234,88,12,0.12);color:#fdba74;border-color:rgba(234,88,12,0.25)">39€/mois</span>
+      </div>
+      <div class="ts-subtitle">Dosage personnalisé selon le patient</div>
+      <p class="ts-desc">Calcul posologique adapté au poids, à l'âge et à la fonction rénale — Cockcroft-Gault intégré. Adapté à la pédiatrie, aux patients fragiles et à la post-transplantation (Tacrolimus, MMF, Prednisolone, Vancomycine). Monitoring et alertes inclus.</p>
+      <div class="ts-stats">
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#fdba74">DFG</div><div class="ts-stat-lbl">Calcul rénal</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#fdba74">Poids</div><div class="ts-stat-lbl">Adapté</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#fdba74">39€</div><div class="ts-stat-lbl">/ mois</div></div>
+      </div>
+      <div class="ts-btns">
+        <a class="ts-open" href="https://medflow-posologie.streamlit.app" target="_blank">Ouvrir l'outil ↗</a>
+        <a class="ts-sub" href="https://buy.stripe.com/eVq9AT9ZCbxb34ybrgb3q04" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#1a0e06 0%,#5f2e0a 100%);">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(234,88,12,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+      <div class="ts-video-play" style="background:rgba(234,88,12,0.2);border:2px solid rgba(253,186,116,0.6);color:#fdba74;">▶</div>
+      <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
+      <div class="ts-video-badge" style="background:rgba(234,88,12,0.15);color:#fed7aa;border:1px solid rgba(234,88,12,0.3);">💊 Posologie</div>
+    </a>
+  </div>
+
+  <!-- Microbiome & Cancer -->
+  <div class="tool-showcase">
+    <div class="ts-text">
+      <div class="ts-icon-row">
+        <span class="ts-icon">🧫</span>
+        <span class="ts-name" style="color:#5eead4">Microbiome &amp; Cancer</span>
+        <span class="badge badge-paid" style="margin-left:4px;background:rgba(13,148,136,0.12);color:#5eead4;border-color:rgba(13,148,136,0.25)">89€/mois</span>
+      </div>
+      <div class="ts-subtitle">Détection précoce du cancer par profil microbiomique</div>
+      <p class="ts-desc">Analyse du microbiome intestinal par séquençage 16S ARNr et modèle Random Forest pour détecter 5 types de cancer (côlon, poumon, sein, prostate, pancréas). Méta-analyse de 18 études, 2 587 patients — AUC = 0.91 · bioRxiv 2026.</p>
+      <div class="ts-stats">
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#5eead4">AUC 0.91</div><div class="ts-stat-lbl">Performance</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#5eead4">18</div><div class="ts-stat-lbl">Études</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#5eead4">5</div><div class="ts-stat-lbl">Cancers</div></div>
+      </div>
+      <div class="ts-btns">
+        <a class="ts-open" href="https://microbiome-cancer-diagnostic.streamlit.app" target="_blank">Ouvrir l'outil ↗</a>
+        <a class="ts-sub" href="https://buy.stripe.com/dRm6oH5JmdFj7kObrgb3q0a" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#060f0e 0%,#0a3530 100%);">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(13,148,136,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+      <div class="ts-video-play" style="background:rgba(13,148,136,0.2);border:2px solid rgba(94,234,212,0.6);color:#5eead4;">▶</div>
+      <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
+      <div class="ts-video-badge" style="background:rgba(13,148,136,0.15);color:#99f6e4;border:1px solid rgba(13,148,136,0.3);">🧫 Microbiome</div>
+    </a>
+  </div>
+
+  <!-- CNV Diagnostic -->
+  <div class="tool-showcase reverse">
+    <div class="ts-text">
+      <div class="ts-icon-row">
+        <span class="ts-icon">🔍</span>
+        <span class="ts-name" style="color:#d8b4fe">CNV Diagnostic</span>
+        <span class="badge badge-paid" style="margin-left:4px;background:rgba(147,51,234,0.12);color:#d8b4fe;border-color:rgba(147,51,234,0.25)">79€/mois</span>
+      </div>
+      <div class="ts-subtitle">Détection &amp; visualisation de variants chromosomiques</div>
+      <p class="ts-desc">Plateforme clinique de détection des CNV par CMA chromosomique. Méta-analyse de 25 études et 79 417 patients avec 6 indications cliniques — déficience intellectuelle, autisme, anomalies congénitales, infertilité. Classification ACMG 2024 intégrée.</p>
+      <div class="ts-stats">
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#d8b4fe">79 417</div><div class="ts-stat-lbl">Patients</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#d8b4fe">15.4%</div><div class="ts-stat-lbl">Rendement</div></div>
+        <div class="ts-stat"><div class="ts-stat-val" style="color:#d8b4fe">6</div><div class="ts-stat-lbl">Indications</div></div>
+      </div>
+      <div class="ts-btns">
+        <a class="ts-open" href="https://cnv-diagnostic-platform.streamlit.app" target="_blank">Ouvrir l'outil ↗</a>
+        <a class="ts-sub" href="https://buy.stripe.com/dRm3cv2xadFj9sW3YOb3q09" target="_blank">💳 S'abonner</a>
+      </div>
+    </div>
+    <a class="ts-video" href="https://www.tiktok.com/@medflow_ai" target="_blank" style="background:linear-gradient(160deg,#0d0a1a 0%,#2e1260 100%);">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(147,51,234,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+      <div class="ts-video-play" style="background:rgba(147,51,234,0.2);border:2px solid rgba(216,180,254,0.6);color:#d8b4fe;">▶</div>
+      <div class="ts-video-label">Voir la démo · TikTok @medflow_ai</div>
+      <div class="ts-video-badge" style="background:rgba(147,51,234,0.15);color:#e9d5ff;border:1px solid rgba(147,51,234,0.3);">🔍 CNV Diagnostic</div>
+    </a>
+  </div>
+
 </section>
 
 <!-- OUTILS GRATUITS -->
@@ -480,64 +657,25 @@
   </div>
 </section>
 
-<!-- VIDÉOS TIKTOK -->
-<section id="videos" style="padding: 60px 0 40px 0;">
-  <div class="section-title">Découvrez nos outils en vidéo</div>
-  <div class="section-sub">Courtes démonstrations · Format TikTok · Chaque outil en 6 secondes</div>
-  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:36px; padding:0 20px;">
-
-    <div style="background:#1e293b; border:1px solid #334155; border-radius:16px; padding:20px; text-align:center; width:160px;">
-      <div style="font-size:2rem;">🔬</div>
-      <div style="color:#60a5fa; font-weight:700; font-size:0.9rem; margin:8px 0 4px;">BioReport AI</div>
-      <div style="color:#64748b; font-size:0.72rem;">Bilans biologiques</div>
-    </div>
-
-    <div style="background:#1e293b; border:1px solid #334155; border-radius:16px; padding:20px; text-align:center; width:160px;">
-      <div style="font-size:2rem;">🧬</div>
-      <div style="color:#a78bfa; font-weight:700; font-size:0.9rem; margin:8px 0 4px;">GenGI</div>
-      <div style="color:#64748b; font-size:0.72rem;">Variants génétiques</div>
-    </div>
-
-    <div style="background:#1e293b; border:1px solid #334155; border-radius:16px; padding:20px; text-align:center; width:160px;">
-      <div style="font-size:2rem;">🦾</div>
-      <div style="color:#3b82f6; font-weight:700; font-size:0.9rem; margin:8px 0 4px;">MYOomics</div>
-      <div style="color:#64748b; font-size:0.72rem;">Multi-omique</div>
-    </div>
-
-    <div style="background:#1e293b; border:1px solid #334155; border-radius:16px; padding:20px; text-align:center; width:160px;">
-      <div style="font-size:2rem;">🛡️</div>
-      <div style="color:#f87171; font-weight:700; font-size:0.9rem; margin:8px 0 4px;">AMR-AI</div>
-      <div style="color:#64748b; font-size:0.72rem;">Antibiorésistance</div>
-    </div>
-
-    <div style="background:#1e293b; border:1px solid #334155; border-radius:16px; padding:20px; text-align:center; width:160px;">
-      <div style="font-size:2rem;">🔍</div>
-      <div style="color:#d8b4fe; font-weight:700; font-size:0.9rem; margin:8px 0 4px;">CNV Diagnostic</div>
-      <div style="color:#64748b; font-size:0.72rem;">Variants chromosomiques</div>
-    </div>
-
-    <div style="background:#1e293b; border:1px solid #334155; border-radius:16px; padding:20px; text-align:center; width:160px;">
-      <div style="font-size:2rem;">🧫</div>
-      <div style="color:#5eead4; font-weight:700; font-size:0.9rem; margin:8px 0 4px;">Microbiome</div>
-      <div style="color:#64748b; font-size:0.72rem;">Détection précoce</div>
-    </div>
-
-  </div>
-  <div style="text-align:center; margin-top:32px;">
+<!-- RÉSEAUX SOCIAUX -->
+<section style="text-align:center; padding:40px 5%;">
+  <div class="section-title">Suivez MedFlow AI</div>
+  <div class="section-sub">Démos, tutoriels et nouveautés · Chaque semaine</div>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:28px;">
     <a href="https://www.tiktok.com/@medflow_ai" target="_blank"
        style="display:inline-flex; align-items:center; gap:10px;
               background:linear-gradient(135deg,#ff0050,#ff6b35);
-              color:white; padding:14px 36px; border-radius:50px;
-              font-weight:700; font-size:0.95rem; text-decoration:none;
-              box-shadow:0 4px 20px rgba(255,0,80,0.4);">
+              color:white; padding:14px 32px; border-radius:12px;
+              font-weight:700; font-size:0.92rem; text-decoration:none;
+              box-shadow:0 4px 20px rgba(255,0,80,0.35);">
       ▶ TikTok @medflow_ai
     </a>
     <a href="https://www.youtube.com/channel/UCMtV90_Z3SqnrjWsaX_sNoA" target="_blank"
        style="display:inline-flex; align-items:center; gap:10px;
               background:linear-gradient(135deg,#ff0000,#cc0000);
-              color:white; padding:14px 36px; border-radius:50px;
-              font-weight:700; font-size:0.95rem; text-decoration:none;
-              box-shadow:0 4px 20px rgba(255,0,0,0.3); margin-left:16px;">
+              color:white; padding:14px 32px; border-radius:12px;
+              font-weight:700; font-size:0.92rem; text-decoration:none;
+              box-shadow:0 4px 20px rgba(255,0,0,0.28);">
       ▶ YouTube MedFlow AI
     </a>
   </div>
